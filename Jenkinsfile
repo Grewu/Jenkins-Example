@@ -2,40 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Grewu/Jenkins-Example.git'
-            }
-        }
         stage('Build') {
             steps {
-                sh './gradlew clean build' // Use 'mvn clean install' if using Maven
+                echo 'Building...'
+                // Добавьте команды для сборки вашего проекта
+                sh 'echo Build step'
             }
         }
         stage('Test') {
             steps {
-                sh './gradlew test' // Use 'mvn test' if using Maven
-            }
-        }
-        stage('Package') {
-            steps {
-                sh './gradlew bootJar' // Use 'mvn package' if using Maven
+                echo 'Testing...'
+                // Добавьте команды для тестирования вашего проекта
+                sh 'echo Test step'
             }
         }
         stage('Deploy') {
             steps {
-                // Add your deployment steps here, e.g., using SCP, SSH, Docker, etc.
-                sh 'scp build/libs/*.jar user@server:/path/to/deploy'
+                echo 'Deploying...'
+                // Добавьте команды для деплоя вашего проекта
+                sh 'echo Deploy step'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and Deploy succeeded!'
-        }
-        failure {
-            echo 'Build or Deploy failed!'
         }
     }
 }
