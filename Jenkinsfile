@@ -1,18 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'gradle:7.3.3-jdk11'
-            args '-v /var/jenkins_home/workspace:/workspace'
-        }
-    }
-
+    agent any
     stages {
-        stage('Check Docker') {
-            steps {
-                echo 'Checking Docker...'
-                sh 'docker --version'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building...'
