@@ -1,34 +1,11 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'node:22.12.0-alpine3.21' }
+    }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                // Выполнение команды Gradle для сборки проекта
-                sh 'chmod +x gradlew'
-                sh './gradlew build'
-            }
-        }
         stage('Test') {
             steps {
-                echo 'Testing...'
-                // Выполнение команды Gradle для тестирования проекта
-                sh './gradlew test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Добавьте команды для деплоя вашего проекта
-                sh 'echo Deploy step'
-            }
-        }
-        stage('Docker') {
-            steps {
-                echo 'Dockering...'
-                // Проверка версии Docker
-                sh 'docker --version'
+                sh 'node --eval "console.log(process.platform,process.env.CI)"'
             }
         }
     }
