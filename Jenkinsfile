@@ -5,15 +5,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Добавьте команды для сборки вашего проекта
-                sh 'echo Build step'
+                // Выполнение команды Gradle для сборки проекта
+                sh './gradlew build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                // Добавьте команды для тестирования вашего проекта
-                sh 'echo Test step'
+                // Выполнение команды Gradle для тестирования проекта
+                sh './gradlew test'
             }
         }
         stage('Deploy') {
