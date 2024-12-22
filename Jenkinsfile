@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Check Gradle Version') {
+            steps {
+                echo 'Checking Gradle version...'
+                sh 'gradle --version'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building...'
