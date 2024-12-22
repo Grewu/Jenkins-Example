@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
@@ -16,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // Добавьте команды для деплоя вашего приложения
+                sh 'echo Deploy step'
             }
         }
     }
