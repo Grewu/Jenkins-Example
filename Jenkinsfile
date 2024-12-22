@@ -24,5 +24,12 @@ pipeline {
                 sh 'echo Deploy step'
             }
         }
+        stage('Docker') {
+            steps {
+                echo 'Dockering...'
+                // Проверка версии Docker
+                sh 'docker --version'
+            }
+        }
     }
 }
