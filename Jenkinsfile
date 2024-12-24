@@ -6,22 +6,21 @@ pipeline {
             steps {
                 echo 'Building...'
                 // Выполнение команды Gradle для сборки проекта
-                sh 'chmod +x gradlew'
-                sh './gradlew build'
+                bat 'gradlew.bat build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
                 // Выполнение команды Gradle для тестирования проекта
-                sh './gradlew test'
+                bat 'gradlew.bat test'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
                 // Добавьте команды для деплоя вашего проекта
-                sh 'echo Deploy step'
+                bat 'echo Deploy step'
             }
         }
     }
