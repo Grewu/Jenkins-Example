@@ -10,6 +10,5 @@ public class TestClass {
     public void test(){
         System.out.println("This is test");
         assertEquals(4,4);
-        asfasfasf
     }
 }
