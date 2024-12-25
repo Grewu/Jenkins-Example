@@ -8,3 +8,7 @@ jobs:
     steps:
       - name: print to console
         run: echo 'Hello GitHub Actions!'
+      - name: print a  lines
+        run: echo 'some text !'
+        
+          
