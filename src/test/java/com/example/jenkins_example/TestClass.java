@@ -9,6 +9,7 @@ public class TestClass {
     @Test
     public void test(){
         System.out.println("This is test");
+        var s = "sasfasasfqffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
         assertEquals(4,4);
     }
 }
