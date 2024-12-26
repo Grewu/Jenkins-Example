@@ -17,9 +17,15 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	testcontainersVersion = "1.20.2"
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.testcontainers:postgresql:$testcontainersVersion"
+	testImplementation "org.testcontainers:junit-jupiter:$testcontainersVersion"
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
