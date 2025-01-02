@@ -8,7 +8,7 @@ pipeline {
         stage('Pull Request Validation') {
             when {
                 expression {
-                    // Проверяем, что это  целевая ветка — main
+                    // Проверяем целевая ветка — main
                     return env.TARGET_BRANCH == 'main'
                 }
             }
