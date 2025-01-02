@@ -1,26 +1,16 @@
 pipeline {
     agent any
+    triggers {
+      // cron('H/5 * * * *')  Проверка каждые 5 минут
+    }
 
     stages {
-        stage('Build') {
+        stage('Pull Request Validation') {
             steps {
-                echo 'Building...'
-                // Выполнение команды Gradle для сборки проекта
+                // Выполнение сборки проекта
                 bat 'gradlew.bat build'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                // Выполнение команды Gradle для тестирования проекта
+                // Выполнение тестов проекта
                 bat 'gradlew.bat test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Добавьте команды для деплоя вашего проекта
-                bat 'echo Deploy step'
             }
         }
     }
